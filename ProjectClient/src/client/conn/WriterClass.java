@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 
-import client.dto.objectDTO;
+import dto.objectDTO;
 
 public class WriterClass {
 	private TextArea taClient;

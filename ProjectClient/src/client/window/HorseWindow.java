@@ -1,0 +1,170 @@
+package client.window;
+
+import java.awt.Button;
+import java.awt.Frame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Label;
+import java.awt.Panel;
+import java.awt.TextArea;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+public class HorseWindow extends Frame implements ActionListener, WindowListener {
+	
+	Label lbl;
+	
+	Panel pnHorse;
+	Button[][] btnHorse;
+	int[] current;
+	
+	TextArea ta;
+	
+	Panel pnBat;
+	TextField tf;
+	Button btnBat;
+	
+	public HorseWindow() {
+		lbl = new Label("경마", Label.CENTER);
+		
+		pnHorse = new Panel();
+		btnHorse = new Button[10][20];
+		current = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		
+		ta = new TextArea("[1Round] : 배팅하세요.\n");
+		
+		pnBat = new Panel();
+		tf = new TextField(10);
+		btnBat = new Button("배팅하기");
+		
+		
+		GridBagConstraints gc = new GridBagConstraints();
+		gc.fill = GridBagConstraints.HORIZONTAL;
+		
+		pnHorse.setLayout(new GridBagLayout());		
+		for(int i = 0; i < 10; i++){
+			for(int j = 0; j < 20; j++){
+				btnHorse[i][j] = new Button("말");
+				btnHorse[i][j].setEnabled(false);
+				
+				gc.gridx = j;
+				gc.gridy = i;
+				pnHorse.add(btnHorse[i][j], gc);
+			}
+		}		
+		init();
+		
+		pnBat.setLayout(new GridBagLayout());
+		gc.gridx = 0;
+		gc.gridy = 0;
+		pnBat.add(tf, gc);
+		
+		gc.gridx = 1;
+		gc.gridy = 0;
+		pnBat.add(btnBat, gc);
+		
+		this.setLayout(new GridBagLayout());
+		gc.gridx = 0;
+		gc.gridy = 0;
+		this.add(lbl,gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 1;
+		this.add(pnHorse,gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 2;
+		this.add(ta,gc);
+		
+		gc.gridx = 0;
+		gc.gridy = 3;
+		this.add(pnBat,gc);
+		
+		btnBat.addActionListener(this);
+		
+		setTitle("경마");
+		setBounds(400, 300, 700, 800);
+		addWindowListener(this);
+		setVisible(true);
+	}
+	
+	
+	public void init(){
+		for(int i = 0; i < 10; i++){
+			btnHorse[i][0].setEnabled(true);
+		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object obj = e.getSource();
+		
+		if(obj == btnBat){			
+			for(int i = 0; i < 10; i++){
+				System.out.println(current[i]);
+				btnHorse[i][current[i]].setEnabled(false);
+				if(i == 0){
+					current[i] +=(int)(Math.random()*4);
+				}else if(i == 1){
+					if((int)(Math.random()*100)==0){
+						current[i] = 20;
+					}else{
+						current[i] = 0;
+					}
+				}else{
+					current[i] +=(int)(Math.random()*3);
+				}
+				
+				btnHorse[i][current[i]].setEnabled(true);
+			}
+		}
+
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		// TODO Auto-generated method stub
+		System.exit(0);
+
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -2,7 +2,7 @@ package server.conn;
 
 import java.util.Vector;
 
-import server.dto.drawDTO;
+import dto.drawDTO;
 
 /*
  * singleton

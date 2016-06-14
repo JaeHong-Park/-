@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
 
-import server.dto.objectDTO;
+import dto.objectDTO;
 
 public class WriterClass {
 	

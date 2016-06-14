@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import client.conn.SingletonClass;
 import client.conn.WriterClass;
-import client.dto.drawDTO;
+import dto.drawDTO;
 
 public class DrawCanvas extends Canvas implements MouseListener, MouseMotionListener{
 	// ÁÂÇ¥

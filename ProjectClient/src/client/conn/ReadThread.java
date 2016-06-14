@@ -9,9 +9,9 @@ import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.util.Vector;
 
-import client.dto.drawDTO;
-import client.dto.objectDTO;
 import client.window.DrawCanvas;
+import dto.drawDTO;
+import dto.objectDTO;
 
 public class ReadThread extends Thread {
 	private Label lblQuestion;

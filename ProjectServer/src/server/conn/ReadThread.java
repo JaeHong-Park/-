@@ -7,8 +7,8 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Vector;
 
-import server.dto.drawDTO;
-import server.dto.objectDTO;
+import dto.drawDTO;
+import dto.objectDTO;
 
 public class ReadThread extends Thread {
 	

@@ -2,7 +2,7 @@ package client;
 
 import java.io.IOException;
 
-import client.window.ClientWindow;
+import client.window.DrawWindow;
 import client.window.LoginWindow;
 
 public class mainClass {

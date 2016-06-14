@@ -109,7 +109,7 @@ public class LoginWindow extends Frame implements WindowListener, ActionListener
 			if(obj == btnLogin){
 				
 				scls.id = tfId.getText();
-				new ClientWindow();
+				new SelectWindow();
 				this.dispose();
 			}
 		} catch (IOException e1) {
